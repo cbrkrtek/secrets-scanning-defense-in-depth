@@ -1,0 +1,15 @@
+title = "gitleaks config for secrets scanning in depth"
+
+[[rules]]
+id = "fake-hardcoded-aws-key"
+description = "rule to find fake AWS Access Key ID for this experiment"
+regex = '''AKIA[A-Z2-7]{16}'''
+tags = ["aws", "access-key"]
+
+
+[allowlist]
+description = "allow example/demo keys explicitly marked as fake in docs"
+paths = [
+  '''docs/experiment-log\.md''',
+  '''README\.md'''
+]
